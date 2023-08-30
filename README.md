@@ -11,7 +11,10 @@ Actions preview
 <p align='center'>
 <img src='preview1.png' title='images' style='max-width:600px'></img>
 </p>
-Group of ease actions
 <p align='center'>
 <img src='preview2.png' title='images' style='max-width:600px'></img>
+</p>
+Group of ease actions
+<p align='center'>
+<img src='preview3.png' title='images' style='max-width:600px'></img>
 </p>
