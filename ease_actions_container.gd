@@ -77,7 +77,7 @@ func runActions():
 		
 func setPanel(panel,info):
 	var sprite = Sprite2D.new()
-	sprite.texture = load("res://icon.svg")
+	sprite.texture = load("res://icon.png")
 	sprite.visible = false
 	panel.add_child(sprite)
 	
