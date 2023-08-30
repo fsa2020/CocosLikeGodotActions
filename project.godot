@@ -14,6 +14,10 @@ config/name="CocosLikeGodotActions"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Actions="*res://Actions.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

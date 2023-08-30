@@ -46,6 +46,7 @@ class Action:
 	
 	func run(target):
 		curProgress = 0
+		curTime = 0
 		setNode(target)
 		addToActionManeger()
 		return self
@@ -293,12 +294,15 @@ class ScaleBy:
 			tarScale = Vector2(scale,scale)
 		else:
 			tarScale = scale
-			
-		tarScale = tarScale*node.scale
+
 		duration = time
 		onFinish = finishCallBack
 		cbParams = params
 
+	func run(traget):
+		tarScale = tarScale*traget.scale
+		super.run(traget)
+		
 	func updateProgress(p):
 		if orgScale == null:
 			orgScale = Vector2(node.scale.x,node.scale.y)
@@ -373,7 +377,6 @@ class TintBy:
 	func updateProgress(p):
 		var cur = Color(0,0,0,0).lerp(tarColor,p)
 		node.modulate += cur-pre
-		print(node.modulate,"TintBy modulate")
 		pre = cur
 		
 	func onRunOver():
@@ -637,8 +640,8 @@ class Blink:
 		cbParams = params
 
 		repeatAction = Actions.Seq.new([
-			Actions.TintBy.new(Color(1,1,1,0),interval/2),
-			Actions.TintBy.new(Color(-1,-1,-1,0),interval/2),
+			Actions.TintBy.new(Color(0.5,0.5,0.5,0),interval/2),
+			Actions.TintBy.new(Color(-0.5,-0.5,-0.5,0),interval/2),
 		])
 
 

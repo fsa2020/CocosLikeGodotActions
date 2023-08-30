@@ -1,10 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://drn8obco4tk6d"]
+[gd_scene load_steps=5 format=3 uid="uid://drn8obco4tk6d"]
 
 [ext_resource type="Script" path="res://action_manager.gd" id="1_52mh6"]
+[ext_resource type="Script" path="res://basic_actions_container.gd" id="2_7s5km"]
+[ext_resource type="Script" path="res://advanced_actions_container.gd" id="3_a1r2f"]
+[ext_resource type="Script" path="res://ease_actions_container.gd" id="4_tyfm3"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="ActionManager" type="Node" parent="."]
 script = ExtResource("1_52mh6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
+
+[node name="Basic" type="HBoxContainer" parent="TabContainer"]
+layout_mode = 2
+script = ExtResource("2_7s5km")
+
+[node name="Advanced" type="HBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("3_a1r2f")
+
+[node name="EaseFunc" type="HBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("4_tyfm3")
