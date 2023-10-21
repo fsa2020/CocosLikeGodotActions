@@ -83,6 +83,15 @@ var actionDisplay = [
 			info.target.modulate = Color(1,1,1,1),
 	},
 	{
+		"name" = "Action Shake",
+		"getAction" = func():
+			return Actions.Shake.new(0.5,Vector2(5,5)) ,
+
+		"pos" = Vector2(0.5,0.5),
+		"reset" = func(info):
+			info.target.position = info.pos *info.panel.size ,
+	},
+	{
 		"name" = "Action Schedule",
 		"getAction" = func():
 			return Actions.Schedule.new(0.2,func(p): 

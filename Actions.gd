@@ -644,6 +644,28 @@ class Blink:
 			Actions.TintBy.new(Color(-0.5,-0.5,-0.5,0),interval/2),
 		])
 
+class Shake:
+	extends Action
+	var amplitude
+	var rng = RandomNumberGenerator.new()	
+	func _init(time,amp = Vector2(1,1),finishCallBack=null,params={}):
+		duration = time
+		onFinish = finishCallBack
+		cbParams = params
+		amplitude = amp
+
+	var lastOffset = Vector2(0,0)
+	func updateProgress(p):
+		var l = smoothstep(0.1,0.5,1-p)
+		var sigX = 1 if rng.randi()%2 == 0 else -1
+		var sigY = 1 if rng.randi()%2 == 0 else -1
+		var sX = rng.randf_range(amplitude.x*0.6,amplitude.x)*l*sigX
+		var sY = rng.randf_range(amplitude.y*0.6,amplitude.y)*l*sigY
+		node.position += Vector2(sX,sY)-lastOffset
+		lastOffset =  Vector2(sX,sY)
+
+	func onRunOver():
+		lastOffset = Vector2(0,0)
 
 
 
